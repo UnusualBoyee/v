@@ -1,4 +1,5 @@
 #!/bin/bash
+echo "Making/Moving Files & Dirs"
 if [ ! -d ~/.bash_setup ]; then
 	mkdir ~/.bash_setup
 	touch ~/.bash_setup/.dailyNotes
@@ -17,10 +18,12 @@ if [ ! -f ~/.bash_setup/.lock ]; then
 	ANO=`grep -Fi .bash_setup/.dailyNotes ~/.bash_aliases`
 	if [ ! $? -eq 0 ]; then
 		sed -i "$ aalias dn='vim ~/.bash_setup/.dailyNotes'" ~/.bash_aliases
-	fi
-		
+	fi	
 fi
+if [ -f ~/.bash_aliases ]; then
 sed -e 's/alias //g' ~/.bash_aliases | sed 's/#.*//g' | sort -b | awk '{if(NF>0) {print $0}}' > ~/.bash_setup/.bash_aliases
+fi
 chmod 600 ~/.bash_setup/.dailyNotes
 chmod 500 ~/.bash_setup/.bash_rc
 chmod 600 ~/.bash_setup/.bash_aliases
+echo "COMPLETED"
