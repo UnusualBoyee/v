@@ -8,8 +8,7 @@
 
 
 WARNING:CAUTION
-#Do not run `` bash setup.sh `` twice as it completed once.
-#If you open terminal bash and saw some different in terminal then you can run `` bash setup.sh `` twice.
 
 TESTED
 UBUNTU 20.04. LTS
+DEBIAN
