@@ -37,9 +37,9 @@ fi
 if [ -f ~/.bash_setup/.dailyNotes ]; then
 	NOTE1=`awk 'NR==1' ~/.bash_setup/.dailyNotes`; NOTE2=`awk 'NR==2' ~/.bash_setup/.dailyNotes`
 	NOTE3=`awk 'NR==3' ~/.bash_setup/.dailyNotes`; NOTE4=`awk 'NR==4' ~/.bash_setup/.dailyNotes`
-	NOTE5=`awk 'NR==4' ~/.bash_setup/.dailyNotes`; NOTE6=`awk 'NR==6' ~/.bash_setup/.dailyNotes`
-	NOTE7=`awk 'NR==5' ~/.bash_setup/.dailyNotes`; NOTE8=`awk 'NR==8' ~/.bash_setup/.dailyNotes`
-	NOTE9=`awk 'NR==6' ~/.bash_setup/.dailyNotes`; NOTE10=`awk 'NR==10' ~/.bash_setup/.dailyNotes`
+	NOTE5=`awk 'NR==5' ~/.bash_setup/.dailyNotes`; NOTE6=`awk 'NR==6' ~/.bash_setup/.dailyNotes`
+	NOTE7=`awk 'NR==7' ~/.bash_setup/.dailyNotes`; NOTE8=`awk 'NR==8' ~/.bash_setup/.dailyNotes`
+	NOTE9=`awk 'NR==9' ~/.bash_setup/.dailyNotes`; NOTE10=`awk 'NR==10' ~/.bash_setup/.dailyNotes`
 	echo -e "\e[031m------------------------REMINDER-------------------\e[034m"
 	if [ -n "$NOTE1" ]; then echo -e "\t\t\t\t$NOTE1"; fi; if [ -n "$NOTE2" ]; then echo -e "\t\t\t\t$NOTE2"; fi
 	if [ -n "$NOTE3" ]; then echo -e "\t\t\t\t$NOTE3"; fi; if [ -n "$NOTE4" ]; then echo -e "\t\t\t\t$NOTE4"; fi
