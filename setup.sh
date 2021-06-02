@@ -12,17 +12,19 @@ else
 	fi
 fi
 if [ ! -f ~/.bash_setup/.lock ]; then
+	touch ~/.bash_setup/.lock
 	NO=`grep -Fni '"$color_prompt" = yes ]; then' ~/.bashrc | cut --delimiter=":" --fields=1 | awk 'NR==1'`
 	let 'NO +=1 '
 	sed -i "$NO i . ~/.bash_setup/.bash_rc" ~/.bashrc
-	ANO=`grep -Fi .bash_setup/.dailyNotes ~/.bash_aliases`
-	if [ ! $? -eq 0 ]; then
-		sed -i "$ aalias dn='vim ~/.bash_setup/.dailyNotes'" ~/.bash_aliases
-	fi	
+	if [ -f ~/.bash_aliases ]; then
+		sed -e 's/alias //g' ~/.bash_aliases | sed 's/#.*//g' | sort -b | awk '{if(NF>0) {print $0}}' > ~/.bash_setup/.bash_aliases
+		ANO=`grep -Fi .bash_setup/.dailyNotes ~/.bash_aliases`
+		if [ ! $? -eq 0 ]; then
+			sed -i "$ aalias dn='vim ~/.bash_setup/.dailyNotes'" ~/.bash_aliases
+		fi
+	fi
 fi
-if [ -f ~/.bash_aliases ]; then
-sed -e 's/alias //g' ~/.bash_aliases | sed 's/#.*//g' | sort -b | awk '{if(NF>0) {print $0}}' > ~/.bash_setup/.bash_aliases
-fi
+
 chmod 600 ~/.bash_setup/.dailyNotes
 chmod 500 ~/.bash_setup/.bash_rc
 chmod 600 ~/.bash_setup/.bash_aliases
