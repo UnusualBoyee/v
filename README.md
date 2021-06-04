@@ -13,3 +13,8 @@ TESTED
 UBUNTU 20.04. LTS
 &
 DEBIAN
+
+
+
+MAIL ON:
+voperatingsystem@gmail.com
