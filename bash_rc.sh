@@ -3,7 +3,6 @@
 if [ -f ~/.bash_aliases ]; then
 sed -e 's/alias //g' ~/.bash_aliases | sed 's/#.*//g' | sort -b | awk '{if(NF>0) {print $0}}' > ~/.bash_setup/.bash_aliases
 fi
-ANO=`grep -Fi .bash_setup/.bash_rc ~/.bashrc`
 if [ $? -eq 0 -a ! -f ~/.bash_setup/.lock ]; then
 	touch ~/.bash_setup/.lock
 fi
