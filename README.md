@@ -1,19 +1,18 @@
 # v
 #Can Redistribuite or Modify
-#RUNNING PATTERN
-`` bash setup.sh ``
-#COMPLETED RUNNING PATTERN
-#After opening terminal you will see the differences.
-#Type 'dn' in terminal bash to edit REMINDER document.
 
+#Setup#
+``git clone https://github.com/v-OS-np/v.git``
+``cd v``
+``chmod u+rx setup.sh``
+``./setup.sh``
+#Setup Complete#
 
-WARNING:CAUTION
-
-TESTED
-UBUNTU 20.04. LTS
-&
-DEBIAN
-
+#Running#
+Open terminal.
+type ``dn``.
+Add some stuff as note & exit.
+REOPEN
 
 
 MAIL ON:
