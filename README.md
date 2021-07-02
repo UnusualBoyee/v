@@ -14,6 +14,9 @@ type ``dn``.
 Add some stuff as note & exit.
 REOPEN
 
+#Commands#
+``./setup.sh u`` //For uninstalling
+``./setup.sh c`` //For Checking files
 
 MAIL ON:
 voperatingsystem@gmail.com
