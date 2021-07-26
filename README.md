@@ -1,5 +1,7 @@
 # v
 #Can Redistribuite or Modify
+#The code is for bash terminal
+
 
 #Setup#
 ``git clone https://github.com/v-OS-np/v.git``
