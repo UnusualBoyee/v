@@ -2,7 +2,6 @@
 if [ -f ~/.bash_aliases ]; then
 sed -e 's/alias //g' ~/.bash_aliases | sed 's/#.*//g' | sort -b | awk '{if(NF>0) {print $0}}' > ~/.bash_setup/.bash_aliases
 fi
-fi
 DAY=`date +"%A"`
 isUS=`locale | grep -i lc_time | cut -c '9-'`
 echo -e "\e[033m                              $DAY\e[0m"
