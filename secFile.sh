@@ -30,12 +30,23 @@ else
 	echo "() PROBLEM DATE" >> ~/.bash_setup.debugged
 fi
 if [ -f ~/.bash_setup/.dailyNotes ]; then
+	lines=`cat ~/.bash_setup/.dailyNotes`
+<<'###'
 	NOTE1=`awk 'NR==1' ~/.bash_setup/.dailyNotes`; NOTE2=`awk 'NR==2' ~/.bash_setup/.dailyNotes`
 	NOTE3=`awk 'NR==3' ~/.bash_setup/.dailyNotes`; NOTE4=`awk 'NR==4' ~/.bash_setup/.dailyNotes`
 	NOTE5=`awk 'NR==5' ~/.bash_setup/.dailyNotes`; NOTE6=`awk 'NR==6' ~/.bash_setup/.dailyNotes`
 	NOTE7=`awk 'NR==7' ~/.bash_setup/.dailyNotes`; NOTE8=`awk 'NR==8' ~/.bash_setup/.dailyNotes`
 	NOTE9=`awk 'NR==9' ~/.bash_setup/.dailyNotes`; NOTE10=`awk 'NR==10' ~/.bash_setup/.dailyNotes`
-	echo -e "\e[031m------------------------REMINDER-------------------\e[034m"
+###
+	echo -e "\e[031m------------------------REMINDER------------------------\e[034m"
+	for line in $lines;
+	do
+		if [ -n "$line" ]; then
+			echo -e "\t\t\t\t$line"
+		fi
+	done
+
+<<'###'
 	if [ -n "$NOTE1" ]; then echo -e "\t\t\t\t$NOTE1"; fi; if [ -n "$NOTE2" ]; then echo -e "\t\t\t\t$NOTE2"; fi
 	if [ -n "$NOTE3" ]; then echo -e "\t\t\t\t$NOTE3"; fi; if [ -n "$NOTE4" ]; then echo -e "\t\t\t\t$NOTE4"; fi
 	if [ -n "$NOTE5" ]; then echo -e "\t\t\t\t$NOTE5"; fi; if [ -n "$NOTE6" ]; then echo -e "\t\t\t\t$NOTE6"; fi
@@ -44,11 +55,34 @@ if [ -f ~/.bash_setup/.dailyNotes ]; then
 	echo -e "\e[031m---------------------------------------------------\e[034m"
 else
 	echo "() PROBLEM REMINDER"
+###
 fi
 if [ ! -f ~/.bash_aliases -a ! -n ~/.bash_aliases ];then
 	echo "() ~/.bash_aliases PROBLEMFILE" >> ~/.bash_setup/.debugged
 fi
-	echo -en "\e[0m"; echo -e "\e[031m--------------------------------------\e[0m"
+a=1
+	echo -en "\e[0m"; echo -e "\e[031m------------------------\e[0m"
+	alines=`cat ~/.bash_setup/.bash_aliases`
+	underline=`tput smul`
+	nounderline=`tput rmul`
+	IFS=$'\n'
+	for line in $alines
+	do
+		if [ -n "$line" ]; then
+			echo -en "${underline}$line"
+			if [ ! $(( a % 2 )) -eq 0 ]; then
+
+			echo -en "\e[031m${nounderline}|        |${underline}\e[00m"
+			fi
+		fi
+		if [ $(( $a % 2 )) -eq 0 ];then
+			echo 
+		fi
+		let 'a +=1'
+	done
+	echo
+	echo -en "\e[0m"; echo -e "\e[031m------------------------\e[0m"
+<<'###'
 		VAR1=`awk 'NR==1' ~/.bash_setup/.bash_aliases`; VAR2=`awk 'NR==2' ~/.bash_setup/.bash_aliases`
 		VAR3=`awk 'NR==3' ~/.bash_setup/.bash_aliases`; VAR4=`awk 'NR==4' ~/.bash_setup/.bash_aliases`
 		VAR5=`awk 'NR==5' ~/.bash_setup/.bash_aliases`; VAR6=`awk 'NR==6' ~/.bash_setup/.bash_aliases`
@@ -110,3 +144,4 @@ fi
 		echo -en "\e[041m $VAR29 \e[0m|    |"; echo -e "\e[044m $VAR30\e[0m"
 	fi
 echo -e "\e[031m--------------------------------------\e[0m"
+###
