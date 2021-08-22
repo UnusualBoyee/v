@@ -60,8 +60,8 @@ fi
 if [ ! -f ~/.bash_aliases -a ! -n ~/.bash_aliases ];then
 	echo "() ~/.bash_aliases PROBLEMFILE" >> ~/.bash_setup/.debugged
 fi
-a=1
 	echo -en "\e[0m"; echo -e "\e[031m------------------------\e[0m"
+	a=1
 	alines=`cat ~/.bash_setup/.bash_aliases`
 	underline=`tput smul`
 	nounderline=`tput rmul`
