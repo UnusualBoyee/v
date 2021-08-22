@@ -39,6 +39,7 @@ if [ -f ~/.bash_setup/.dailyNotes ]; then
 	NOTE9=`awk 'NR==9' ~/.bash_setup/.dailyNotes`; NOTE10=`awk 'NR==10' ~/.bash_setup/.dailyNotes`
 ###
 	echo -e "\e[031m------------------------REMINDER------------------------\e[034m"
+	IFS=$'\n'
 	for line in $lines;
 	do
 		if [ -n "$line" ]; then
